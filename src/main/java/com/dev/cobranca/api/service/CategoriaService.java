@@ -21,13 +21,11 @@ public class CategoriaService {
 	}
 
 	public Categoria salvar(Categoria categoria) {
-		Categoria categoriaSalva = categoriaRepository.save(categoria);
-		return categoriaSalva;
+		return categoriaRepository.save(categoria);
 	}
 
 	public Categoria buscarCodigo(Long codigo) {
-		Categoria categoria = categoriaRepository.findOne(codigo);
-		return categoria;
+		return categoriaRepository.findOne(codigo);
 	}
 	
 	public void deletar(Long codigo) {

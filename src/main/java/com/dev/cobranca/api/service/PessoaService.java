@@ -21,13 +21,11 @@ public class PessoaService {
 	}
 
 	public Pessoa salvar(Pessoa pessoa) {
-		Pessoa categoriaSalva = pessoaRepository.save(pessoa);
-		return categoriaSalva;
+		return pessoaRepository.save(pessoa);
 	}
 
 	public Pessoa buscarCodigo(Long codigo) {
-		Pessoa pessoa = pessoaRepository.findOne(codigo);
-		return pessoa;
+		return pessoaRepository.findOne(codigo);
 	}
 
 	public Pessoa atualizar(Long codigo, Pessoa pessoa) {
@@ -47,7 +45,7 @@ public class PessoaService {
 		pessoaRepository.delete(codigo);
 	}
 
-	private Pessoa buscarPessoaPeloCodigo(Long codigo) {
+	public Pessoa buscarPessoaPeloCodigo(Long codigo) {
 		Pessoa pessoaSalva = pessoaRepository.findOne(codigo);
 		if (pessoaSalva == null) {
 			throw new EmptyResultDataAccessException(1);

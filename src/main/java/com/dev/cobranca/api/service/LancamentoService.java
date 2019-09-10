@@ -1,10 +1,10 @@
 package com.dev.cobranca.api.service;
 
-import java.util.List;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.dev.cobranca.api.model.Lancamento;
@@ -23,8 +23,8 @@ public class LancamentoService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
-	public List<Lancamento> listar(LancamentoFilter lancamentoFilter) {
-		return lancamentoRepository.filtrar(lancamentoFilter);
+	public Page<Lancamento> filtrar(LancamentoFilter lancamentoFilter, Pageable pageable) {
+		return lancamentoRepository.filtrar(lancamentoFilter, pageable);
 	}
 
 	public Lancamento salvar(Lancamento lancamento) {
